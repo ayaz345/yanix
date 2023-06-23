@@ -19,10 +19,7 @@ def splitpath(path):
 	return p
 
 def checkpath(path):
-	for n in noreaddirs:
-		if n in splitpath(path):
-			return True
-	return False
+	return any(n in splitpath(path) for n in noreaddirs)
 
 for subdir, dirs, files in os.walk(os.getcwd()):
 
@@ -48,6 +45,6 @@ print("total lines: ", lines)
 print("total files: ", filecount)
 try:
 	size = os.path.getsize(os.path.join(os.getcwd(), "os-image.bin"))
-	print("os image size: ", str(size) + "B", "(" + str(round(size/1024)) + "kB)")
+	print("os image size: ", f"{str(size)}B", f"({str(round(size / 1024))}kB)")
 except os.error:
 	print("project not build yet, cannot return os-image size")

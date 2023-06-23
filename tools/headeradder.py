@@ -16,7 +16,6 @@ def change(path, findtext, header):
                     defs += 1
             except Exception as e:
                 print("warning: ", e)
-                pass
     return defs
 
 def main():

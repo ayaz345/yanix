@@ -14,7 +14,7 @@ for subdir, dirs, files in os.walk(os.getcwd()):
 				for i, line in enumerate(content):
 					if line.startswith("#include "):
 						if line.endswith(HEADERTOFIX):
-							content[i] = "#include " + NEWHEADER
+							content[i] = f"#include {NEWHEADER}"
 				f.close()
 			with open(os.path.join(subdir, file), "w+") as f:
 				f.write("\n".join(content))

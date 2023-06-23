@@ -38,7 +38,7 @@ def padding():
 		 "y", "z"]
 	with open("padding", "wb") as f:
 		i = 0
-		for x in range(int(size/0x200)):
+		for _ in range(size // 0x200):
 			f.write((a[i]*0x200).encode())
 			i+=1
 			if i == len(a):
